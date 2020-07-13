@@ -13,4 +13,6 @@ include 'spring-demo'  得放在 settings.gradle 文件最后,不然无法build�
 # 插件
 
 
-# spring-core 模块
+# IOC 加载过程
+
+配置文件到读取 Resource, 解析为 BeanDefinition, 注册到容器中

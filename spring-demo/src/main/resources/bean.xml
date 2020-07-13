@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="iManService" class="org.springframework.demo.service.impl.ManServiceImpl">
-    </bean>
+	<bean id="iManService" class="org.springframework.demo.service.impl.ManServiceImpl">
+	</bean>
 
+	<bean id="manController" class="org.springframework.demo.controller.ManController">
+		<property name="iManService" ref="iManService"/>
+	</bean>
+
+	<!-- 通过无参构造创建 原型模式 和 单例模式 -->
+	<bean id="bean0" lazy-init="true" class="org.springframework.demo.temp.TempBean"/>
+	<bean id="bean1" lazy-init="true" scope="prototype" class="org.springframework.demo.temp.TempBean"/>
+
+	<!-- 通过静态工厂方法创建 	-->
+	<bean id="bean2" class="org.springframework.demo.temp.TempBean" factory-method="staticFactory"/>
+
+	<!-- 通过实例工厂方法创建 需要先创建工厂bean实例 -->
+	<bean id="beanFactory" class="org.springframework.demo.temp.TempBeanFactory"/>
+	<bean id="bean3" class="org.springframework.demo.temp.TempBean" factory-method="factory"
+		  factory-bean="beanFactory"/>
+
+	<!-- 通过实例工厂方法创建 需要先创建工厂bean实例 -->
+	<bean id="bean4" class="org.springframework.demo.temp.TempBeanFactoryBean"/>
 </beans>

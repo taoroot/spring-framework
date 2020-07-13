@@ -1,6 +1,7 @@
 package org.springframework.demo;
 
 
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -10,16 +11,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
-import org.springframework.demo.entity.Man;
-import org.springframework.demo.service.IManService;
+import org.springframework.demo.controller.ManController;
+import org.springframework.demo.temp.TempBean;
 
 @Configuration
-@ComponentScan("org.springframework.demo.service.impl")
+@ComponentScan({"org.springframework.demo.controller", "org.springframework.demo.service.impl"})
 public class AppStart {
 
 	public static void main(String[] args) {
-//		startByBeanFactory();
-		startByClassPathXmlApplicationContext();
+		startByBeanFactory();
+//		startByClassPathXmlApplicationContext();
 //		startByAnnotationConfigApplicationContext();
 	}
 
@@ -41,36 +42,61 @@ public class AppStart {
 		}
 
 		// 使用
-		IManService manService = beanFactory.getBean("iManService", IManService.class);
-		Man man = manService.getOne("spring");
-		System.out.println(man.getName());
+		ManController controller = beanFactory.getBean(ManController.class);
+		controller.getMan();
+		createBean(beanFactory);
 	}
-
 
 	/**
 	 * 基于 ApplicationContext, 通过XML导入
 	 */
 	public static void startByClassPathXmlApplicationContext() {
 		ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean.xml");
-		IManService manService = applicationContext.getBean("iManService", IManService.class);
 		for (String beanDefinitionName : applicationContext.getBeanDefinitionNames()) {
 			System.out.println(beanDefinitionName);
 		}
-		Man man = manService.getOne("spring");
-		System.out.println(man.getName());
+		ManController controller = applicationContext.getBean(ManController.class);
+		controller.getMan();
 	}
 
 	/**
-	 * 基于 ApplicationContext, 注解的调试
+	 * 基于 ApplicationContext, 通过注解导入
 	 */
 	public static void startByAnnotationConfigApplicationContext() {
 		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppStart.class);
 		for (String beanDefinitionName : applicationContext.getBeanDefinitionNames()) {
 			System.out.println(beanDefinitionName);
 		}
-		IManService manService = applicationContext.getBean("iManService", IManService.class);
-		Man man = manService.getOne("spring");
-		System.out.println(man.getName());
+		ManController controller = applicationContext.getBean(ManController.class);
+		controller.getMan();
+	}
+
+	/**
+	 * 测试创建模式
+	 */
+	public static void createBean(BeanFactory factory) {
+		TempBean bean = factory.getBean("bean0", TempBean.class);
+		System.out.println("单例模式" + bean);
+		bean = factory.getBean("bean0", TempBean.class);
+		System.out.println("单例模式" + bean);
+
+
+		bean = factory.getBean("bean1", TempBean.class);
+		System.out.println("原型模式" + bean);
+		bean = factory.getBean("bean1", TempBean.class);
+		System.out.println("原型模式" + bean);
+
+
+		bean = factory.getBean("bean2", TempBean.class);
+		System.out.println("Static工厂方法模式" + bean);
+
+		bean = factory.getBean("bean3", TempBean.class);
+		System.out.println("实例工厂方法模式" + bean);
+
+
+		bean = factory.getBean("bean4", TempBean.class);
+		System.out.println("BeanFactory模式" + bean);
+
 
 	}
 }
