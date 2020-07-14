@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer</OriginalElement>
+  <nodes>
+    <node x="80.0" y="103.0">org.springframework.web.context.AbstractContextLoaderInitializer</node>
+    <node x="108.0" y="0.0">org.springframework.web.WebApplicationInitializer</node>
+    <node x="0.0" y="309.0">org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer</node>
+    <node x="64.0" y="206.0">org.springframework.web.servlet.support.AbstractDispatcherServletInitializer</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer" target="org.springframework.web.servlet.support.AbstractDispatcherServletInitializer">
+      <point x="0.0" y="-26.5" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="org.springframework.web.context.AbstractContextLoaderInitializer" target="org.springframework.web.WebApplicationInitializer">
+      <point x="0.0" y="-26.5" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.support.AbstractDispatcherServletInitializer" target="org.springframework.web.context.AbstractContextLoaderInitializer">
+      <point x="0.0" y="-26.5" />
+      <point x="0.0" y="26.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="232.0" y="181.0" />
+  <SelectedNodes>
+    <node>org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

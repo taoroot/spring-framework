@@ -13,6 +13,14 @@ include 'spring-demo'  得放在 settings.gradle 文件最后,不然无法build�
 # 插件
 
 
-# IOC 加载过程
+# Spring IOC 容器加载过程
 
 配置文件到读取 Resource, 解析为 BeanDefinition, 注册到容器中
+
+# Spring MVC 核心流程
+
+建立请求 和 Controller 方法的映射集合的流程
+
+根据请求查询对应的 Controller 方法的流程
+
+请求参数绑定到方法形参,执行方法处理请求, 渲染视图的流程

@@ -39,3 +39,5 @@ rootProject.children.each {project ->
 
 // 必须放在这里, 移动一下位置都报错.....
 include 'spring-demo'
+include 'spring-demomvc'
+
