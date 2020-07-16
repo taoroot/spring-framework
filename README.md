@@ -1,4 +1,4 @@
-#  Spring Framework 5.2.5.BUILD-SNAPSHOT 源码 (个人学习使用)
+#  Spring Framework 5.2.5 源码 (个人学习使用)
 
 # 编译
 
@@ -10,12 +10,11 @@
 
 include 'spring-demo'  得放在 settings.gradle 文件最后,不然无法build通过
 
-# 插件
-
-
 # Spring IOC 容器加载过程
 
 配置文件到读取 Resource, 解析为 BeanDefinition, 注册到容器中
+
+![](spring-demo/flow/ioc.jpg)
 
 # Spring MVC 核心流程
 
