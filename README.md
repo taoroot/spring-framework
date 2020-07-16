@@ -10,11 +10,23 @@
 
 include 'spring-demo'  得放在 settings.gradle 文件最后,不然无法build通过
 
+# 创建 spring-demomvc 模块
+
+include 'spring-demomvc'  得放在 settings.gradle 文件最后,不然无法build通过
+
 # Spring IOC 容器加载过程
 
 配置文件到读取 Resource, 解析为 BeanDefinition, 注册到容器中
 
-![](spring-demo/flow/ioc.jpg)
+- [我理解 Spring IoC](https://www.yuque.com/docs/share/2a792ab7-302a-4757-9c52-efc7e3b2d06c)
+
+![](doc/img/ioc.jpg)
+
+![](doc/img/ApplicationContext.png)
+
+![](doc/img/BeanDefinition.png)
+
+![](doc/img/DefaultListableBeanFactory.png)
 
 # Spring MVC 核心流程
 
@@ -23,3 +35,8 @@ include 'spring-demo'  得放在 settings.gradle 文件最后,不然无法build�
 根据请求查询对应的 Controller 方法的流程
 
 请求参数绑定到方法形参,执行方法处理请求, 渲染视图的流程
+
+
+![](doc/img/RequestMappingHandlerMapping.png)
+
+![](doc/img/AbstractAnnotationConfigDispatcherServletInitializer.png)

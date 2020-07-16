@@ -35,14 +35,14 @@
       <point x="390.88888888888886" y="284.0" />
       <point x="74.66666666666669" y="26.5" />
     </edge>
+    <edge source="org.springframework.beans.factory.support.AbstractBeanDefinition" target="org.springframework.beans.factory.config.BeanDefinition">
+      <point x="0.0" y="-26.5" />
+      <point x="0.0" y="26.5" />
+    </edge>
     <edge source="org.springframework.beans.factory.support.ChildBeanDefinition" target="org.springframework.beans.factory.support.AbstractBeanDefinition">
       <point x="0.0" y="-26.5" />
       <point x="312.0" y="284.0" />
       <point x="316.2222222222222" y="284.0" />
-      <point x="0.0" y="26.5" />
-    </edge>
-    <edge source="org.springframework.beans.factory.support.AbstractBeanDefinition" target="org.springframework.beans.factory.config.BeanDefinition">
-      <point x="0.0" y="-26.5" />
       <point x="0.0" y="26.5" />
     </edge>
     <edge source="org.springframework.beans.factory.config.BeanDefinition" target="org.springframework.core.AttributeAccessor">

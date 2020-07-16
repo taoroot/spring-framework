@@ -10,15 +10,15 @@
   </nodes>
   <notes />
   <edges>
+    <edge source="org.springframework.web.servlet.support.AbstractDispatcherServletInitializer" target="org.springframework.web.context.AbstractContextLoaderInitializer">
+      <point x="0.0" y="-26.5" />
+      <point x="0.0" y="26.5" />
+    </edge>
     <edge source="org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer" target="org.springframework.web.servlet.support.AbstractDispatcherServletInitializer">
       <point x="0.0" y="-26.5" />
       <point x="0.0" y="26.5" />
     </edge>
     <edge source="org.springframework.web.context.AbstractContextLoaderInitializer" target="org.springframework.web.WebApplicationInitializer">
-      <point x="0.0" y="-26.5" />
-      <point x="0.0" y="26.5" />
-    </edge>
-    <edge source="org.springframework.web.servlet.support.AbstractDispatcherServletInitializer" target="org.springframework.web.context.AbstractContextLoaderInitializer">
       <point x="0.0" y="-26.5" />
       <point x="0.0" y="26.5" />
     </edge>
